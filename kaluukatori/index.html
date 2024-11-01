@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulatori Llogarit Plus</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+   <nav>
+       <a href="index.html">
+            <img src="images/logo.png" alt="Logo" class="logo">
+        </a>
+        <a href="index.html">Home</a>
+        <a href="history.html">History</a>
+        <a href="aboutus.html">About Us</a>
+    </nav>
+<body onload="checkUserRegistration()">
+
+    <!-- Forma e regjistrimit -->
+    <div id="register" style="display: none;">
+        <h2>Regjistrohu</h2>
+        <label for="username">Emri i përdoruesit:</label>
+        <input type="text" id="username" placeholder="Shkruani emrin tuaj">
+        <button onclick="registerUser()">Regjistrohu</button>
+    </div>
+
+
+    <!-- Seksioni i kalkulatorit -->
+    <div id="calculator" style="display: none;">
+        <h2>Kalkulatori Llogarit Plus</h2>
+        <input type="number" id="num1" placeholder="Numri i parë">
+        <select id="operation">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="number" id="num2" placeholder="Numri i dytë">
+        <button onclick="calculate()">Llogarit</button>
+        <p id="result">Rezultati: </p>
+    </div>
+
+    <!-- Seksioni për vlerësim pas 5 përdorimesh -->
+    <div id="rating" style="display: none;">
+        <p>Ju lutem na vlerësoni:</p>
+        <button onclick="rate(1)">1 Yll</button>
+        <button onclick="rate(2)">2 Yje</button>
+        <button onclick="rate(3)">3 Yje</button>
+        <button onclick="rate(4)">4 Yje</button>
+        <button onclick="rate(5)">5 Yje</button>
+    </div>
+
+ 
+
+    <script src="script.js"></script>
+</body>
+</html>

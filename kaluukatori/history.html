@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia e Kalkulimeve</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+       <a href="history.html">
+            <img src="images/logo.png" alt="Logo" class="logo">
+        </a>
+        <a href="index.html">Home</a>
+        <a href="history.html">History</a>
+        <a href="aboutus.html">About Us</a>
+    </nav>
+    <h1>Historia e Kalkulimeve</h1>
+    <div id="history"></div>
+
+    <script>
+        function loadHistory() {
+            const username = localStorage.getItem('username');
+            const userCalculations = JSON.parse(localStorage.getItem(`calculations_${username}`)) || [];
+            const historyDiv = document.getElementById('history');
+
+            if (userCalculations.length === 0) {
+                historyDiv.innerHTML = '<p>Asnjë kalkulim nuk është ruajtur ende.</p>';
+            } else {
+                userCalculations.forEach(calc => {
+                    const calcElement = document.createElement('p');
+                    calcElement.textContent = `${calc.num1} ${calc.operation} ${calc.num2} = ${calc.result}`;
+                    historyDiv.appendChild(calcElement);
+                });
+            }
+        }
+
+        loadHistory();
+    </script>
+</body>
+</html>
